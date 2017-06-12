@@ -1,0 +1,19 @@
+nav a:nth-of-type(2){
+	border-bottom: 2px solid #e67e22;
+	text-decoration: none;
+}
+
+section{
+	width: 80%;
+	margin: 20px auto;
+	background: #fff;
+	padding: 40px;
+}
+.form-group label{
+	font-size: 16px;
+	line-height: 32px;
+}
+.form-group textarea{
+	resize: none;
+	height: 320px;
+}

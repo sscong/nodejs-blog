@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index.css"/>
+  </head>
+  <body>
+  	
+  	<%-include('header.ejs')%>
+  	
+  	
+    <!--section-->
+    <section class="clearfix">
+    	<div class="left">
+    		<%for(var i =0;i<boke.length;i++){%>
+    			<article class="clearfix">
+						<h2><%-boke[i].title%></h2>
+						<div>作者：<span class="author">ssm</span>　<span class="time"><%-boke[i].time%></span></div>
+						<p>
+			    				<%-boke[i].content%>
+			    			</p>
+						<hr/>
+						<a style="cursor: pointer;" class="btn btn-warning">阅读全文</a>
+					</article>
+			  <%}%>
+    		
+    		
+    	</div>
+    	<div class="right">
+    		<article>
+    			<h3>个人信息</h3>
+    			<p>姓名：小明</p>
+    			<p>年龄：22</p>
+    			<p>个人简介：好，很好，非常好</p>
+    		</article>
+    		<article>
+    			<%if(!user1){%>
+    				<form action="/login" method="post" class="form-horizontal">
+	    				<div class="user-wrap">
+	    					<label>用户名：</label>
+	    					<input type="text" name="username" />
+	    				</div>
+	    				<div class="pass-wrap">
+	    					<label>密码：</label>
+	    					<input type="text" name="pass" />
+	    				</div>
+	    				<div class="btn-wrap">
+	    					<label></label>
+	    					<input type="submit" value="登录" class="btn btn-success"/>
+	    					<a data-toggle="modal" data-target="#myModal" style="cursor: pointer;">还没有账号？请注册</a>
+	    				</div>
+	    			</form>
+					<%}else{%>
+						<h4>欢迎您，我的主人：</h4>
+						<p><%-user1%></p>
+						<form action="/relogin" method="post">
+							<input type="submit" value="退出登录" class="btn btn-danger"/>
+						</form>
+						
+    			<%}%>
+    		</article>
+    	</div>
+    </section>
+    
+		<script src="/javascripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/javascripts/js.js" type="text/javascript" charset="utf-8"></script>
+   	<%- include('modal.ejs') %>
+   	
+   <!--取后台数据，用户名-->	
+   <span id="aaa" style="display: none;"><%- user%></span>
+   <span id="bbb" style="display: none;"><%- pass%></span>
+   
+
+  <script type="text/javascript">
+  	$(function(){
+  		var a = $('#aaa').html().split(',');
+			var b = $('#bbb').html().split(',');
+			//判断用户名是否可用注册
+			$('.modal-content .user-wrap input').blur(function(){
+				
+				var username = $('.modal-body .user-wrap input').val();
+				for(var i =0;i<a.length;i++){
+					if(a[i] == username){					
+						$('.modal-content .user-wrap span').html('用户名已存在');
+						break;
+					}else{
+						$('.modal-content .user-wrap span').html('该用户名可用');
+					}
+				}
+				
+			});
+			
+			//阅读全文
+			$('article a').click(function(){
+				$(this).parent().find('p').css({'height':'auto'});
+			});
+  	});
+  			
+		
+   	</script>
+  
+  </body>
+</html>

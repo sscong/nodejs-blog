@@ -1,0 +1,96 @@
+
+nav a:nth-of-type(1){
+	border-bottom: 2px solid #e67e22;
+	text-decoration: none;
+}
+
+/**section**/
+section{
+	width: 80%;
+	margin: 30px auto;
+	height: auto;
+	
+}
+
+/**left**/
+section .left{
+	width: 65%;
+	float: left;
+}
+section article{
+	padding: 20px;
+	background: #fff;
+	margin-bottom: 15px;
+}
+
+section .left article h2{
+	text-align: center;
+	line-height: 32px;
+}
+section .left article div{
+	text-align: center;
+	line-height: 28px;
+}
+section .left article div .author{
+	color: #e67e22;
+}
+section .left article div .time{
+	color: #999;
+}
+section .left article p{
+	text-indent: 2em;
+	line-height: 22px;
+	height: 66px;
+	overflow: hidden;
+}
+section .left hr{
+	height: 2px;
+	border: none;
+	background: #eee;
+}
+section .left article .btn{
+	float: right;
+}
+
+
+
+section .right{
+	width: 32%;
+	float: right;
+}
+
+/**right**/
+form label{
+	width: 70px;
+	font-size: 14px;
+	text-align: right;
+	font-weight: 100;
+}
+form>div{
+	margin-bottom: 12px;
+}
+form input[type='text']{
+	width: 180px;
+	height: 30px;
+	border-radius: 3px;
+	background: #fff;
+	border: 1px solid #cecece;
+}
+
+form .btn-wrap input{
+	margin-right: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

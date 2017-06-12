@@ -1,0 +1,40 @@
+ <!-- 模态框（Modal） -->
+
+ 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					注册
+				</h4>
+			</div>
+			<form action="/register" method="post">
+				<div class="modal-body">
+					
+					
+					<div class="user-wrap">
+						<label>用户名：</label>
+						<input type="text" name="username" />
+						<span></span>
+					</div>
+					<div class="pass-wrap">
+						<label>密码：　</label>
+						<input type="text" name="pass" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="submit" class="btn btn-primary">
+						注册
+					</button>
+				</div>
+			</form>
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>

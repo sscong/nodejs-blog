@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>留言板</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/messages.css"/>
+</head>
+<body>
+	
+	<%-include('header.ejs')%>
+	
+	<section>
+		<h2 class="clearfix">
+			<strong>留言板</strong>
+			<div class="num">
+				评论（<span>3</span>人参与，<span>1</span>条评论）
+			</div>
+		</h2>
+		
+		<!--留言框-->
+		<div class="message-wrap">
+			
+			<div class="kuang">
+				<img src="/images/toux.jpg"/>
+				<form class="message-con" action="/users/messages" method="post">
+					<textarea placeholder="来说两句把..." name="con"></textarea>
+					<div class="fb">
+						<input type="submit" value="发布" />
+					</div>
+					<div class="jiao">
+						<em class="arrline">◆</em>
+						<span class="arrclr">◆</span>
+					</div>
+				</form>	
+			</div>
+		</div>
+		
+		<!--留言列表-->
+		<h4>最新留言</h4>
+		<ul>
+			<%for(var i =result.length-1;i>=0;i--){%>
+				<li>
+					<img src="/images/toux.jpg"/>
+					<div class="liuy-con">
+						<p><span class="username"><%-result[i].username%></span>：<span class="con"><%-result[i].con%></span></p>
+						<div class="clearfix">
+							<span class="liuy-time"><%-result[i].time%></span>
+							<div class="zan">
+								<i><img src="images/dz.png"><span>（1）</span></i>　｜　
+								<span class="liuy-hf">回复</span>
+							</div>
+							
+						</div>
+					</div>
+				</li>
+			<%}%>
+			
+		</ul>
+	</section>
+	
+	
+	
+	<script src="/javascripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/js.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
