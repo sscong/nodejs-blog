@@ -15,7 +15,7 @@
 		<h2 class="clearfix">
 			<strong>留言板</strong>
 			<div class="num">
-				评论（<span>3</span>人参与，<span>1</span>条评论）
+				评论（<span class="rscount">3</span>人参与，<span class="lycount">1</span>条留言）
 			</div>
 		</h2>
 		
@@ -49,7 +49,7 @@
 							<span class="liuy-time"><%-result[i].time%></span>
 							<div class="zan">
 								<i><img src="images/dz.png"><span>（1）</span></i>　｜　
-								<span class="liuy-hf">回复</span>
+								<span class="liuy-hf">删除</span>
 							</div>
 							
 						</div>
@@ -65,6 +65,21 @@
 	<script src="/javascripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/javascripts/js.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var num = $('ul li').length;
+			$('.lycount').html(num);  //共有多少条留言
+			var arr = [];
+			for(var i=0;i<$('li .username').length;i++){
+				arr.push($('li .username').eq(i).html());
+			}
+			var set = new Set(arr);
+			$('.rscount').html(set.size);  //去重之后共有多少人参与
+			
+			
+		});
+	</script>
+
 </body>
 </html>
 

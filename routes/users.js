@@ -46,6 +46,7 @@ router.post('/messages',function(req,res,next){
 router.post('/boke',function(req,res,next){
 	var title = req.body['title'];
 	var content = req.body['content'];
+	content = (content.replace(/\s /gi,"&nbsp;")).replace(/\n/gi,"<br/>");
 	var date = new Date();
 	var yy = date.getFullYear();
 	var mm = date.getMonth()+1;

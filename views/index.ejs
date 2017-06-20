@@ -22,7 +22,7 @@
 			    				<%-boke[i].content%>
 			    			</p>
 						<hr/>
-						<a style="cursor: pointer;" class="btn btn-warning">阅读全文</a>
+						<a style="cursor: pointer;" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">阅读全文</a>
 					</article>
 			  <%}%>
     		
@@ -68,6 +68,7 @@
 		<script src="/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascripts/js.js" type="text/javascript" charset="utf-8"></script>
    	<%- include('modal.ejs') %>
+   	<%- include('modal1.ejs') %>
    	
    <!--取后台数据，用户名-->	
    <span id="aaa" style="display: none;"><%- user%></span>
@@ -92,11 +93,12 @@
 				}
 				
 			});
-			
 			//阅读全文
 			$('article a').click(function(){
-				$(this).parent().find('p').css({'height':'auto'});
+				$('#myModal1 h4').html($(this).parent().find('h2').html());
+				$('#myModal1 .modal-body').html($(this).parent().find('p').html());
 			});
+			
   	});
   			
 		
